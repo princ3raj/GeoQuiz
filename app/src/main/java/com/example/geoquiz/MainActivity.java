@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.Gravity;
@@ -13,8 +14,9 @@ import android.view.Gravity;
 public class MainActivity extends AppCompatActivity {
      Button mTrueButton;
      Button mFalseButton;
-     Button mNextButton;
+     ImageButton mNextButton;
      TextView mQuestionTextView;
+     ImageButton mPrevButton;
 
     private Question []mQuestionBank=new Question[]
             {
@@ -38,8 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
         mTrueButton=(Button)findViewById(R.id.true_button);
         mFalseButton=(Button)findViewById(R.id.false_button);
-        mNextButton=(Button)findViewById(R.id.next_button);
+        mNextButton=(ImageButton)findViewById(R.id.next_button);
         mQuestionTextView=findViewById(R.id.question_text_view);
+        mPrevButton=(ImageButton)findViewById(R.id.prev_button);
+
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PrevUpdate();
+            }
+
+
+        });
 
 
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -73,11 +86,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void UpdateQuestion() {
-        mCurrentIndex=(mCurrentIndex+1)%mQuestionBank.length;
-              int question=mQuestionBank[mCurrentIndex].getmTextResId();
-                mQuestionTextView.setText(question);
+        if(mCurrentIndex<4) {
+            mCurrentIndex = (mCurrentIndex + 1);
+            int question = mQuestionBank[mCurrentIndex].getmTextResId();
+            mQuestionTextView.setText(question);
 
-
+        }
 
     }
 
@@ -102,6 +116,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void PrevUpdate() {
+            if(mCurrentIndex>0) {
+                mCurrentIndex = (mCurrentIndex - 1);
+                int question = mQuestionBank[mCurrentIndex].getmTextResId();
+                mQuestionTextView.setText(question);
+            }
 
+
+    }
 
 }
