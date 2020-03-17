@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Question []mQuestionBank=new Question[]
             {
-                new Question(R.string.question_australia,true),
+
 
                 new Question(R.string.question_africa,false),
                     new Question(R.string.question_americas,true),
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_quiz);
 
         mTrueButton=(Button)findViewById(R.id.true_button);
         mFalseButton=(Button)findViewById(R.id.false_button);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        mCurrentIndex=-1;
+
         UpdateQuestion();
 
 
