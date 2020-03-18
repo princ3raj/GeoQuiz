@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="prev_button">PREV</string>
+    <string name="warning_text">Warning</string>
+    <string name="answer_text">Answer</string>
+    <string name="cheat_button">Cheat</string>
+    <string name="cheat">cheating is bad</string>
+</resources>
